@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件有属性</title>
+</head>
+
+<body>
+    <div id="div1"></div>
+
+    <script src="bower_components/babel/browser.js"></script>
+    <script src="bower_components/react/react.production.min.js"></script>
+    <script src="bower_components/react/react-dom.production.min.js"></script>
+    <script type="text/babel">
+        class Comp extends React.Component{
+            constructor(...args){
+                super(...args);
+                this.state = {value:''};
+            }
+            fn(ev){
+                // alert('abc');
+                this.setState({
+                    value:ev.target.value
+                })
+            }
+            render(){
+                return <div>
+                        <input type="text" onChange={this.fn.bind(this)} />
+                        <span>{this.state.value}</span>
+                    </div>;
+            }
+        }
+        ReactDOM.render(
+            <Comp />,
+            document.getElementById('div1')
+        );
+    </script>
+</body>
+
+</html>

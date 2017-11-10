@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第一个React</title>
+</head>
+
+<body>
+    <div id="div1"></div>
+
+    <script src="bower_components/babel/browser.js"></script>
+    <script src="bower_components/react/react.production.min.js"></script>
+    <script src="bower_components/react/react-dom.production.min.js"></script>
+    <script type="text/babel">
+        var oDiv = document.getElementById('div1');
+        window.onload = function () {
+            ReactDOM.render(
+                <span>1111</span>,
+                oDiv
+            );
+        }
+    </script>
+</body>
+
+</html>
