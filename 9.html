@@ -27,6 +27,12 @@
             componentDidMount(){
                 this.trick()
             }
+            componentWillUpdate(){
+                console.log('即将更新')
+            }
+            componentDidUpdate(){
+                console.log('更新完成')
+            }
             trick(){
                 var oDate = new Date();
                 this.setState({
