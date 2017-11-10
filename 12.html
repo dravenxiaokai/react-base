@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建列表</title>
+</head>
+
+<body>
+    <div id="div1"></div>
+
+    <script src="bower_components/babel/browser.js"></script>
+    <script src="bower_components/react/react.development.js"></script>
+    <script src="bower_components/react/react-dom.development.js"></script>
+    <script type="text/babel">
+        class Item extends React.Component{
+            constructor(...args){
+                super(...args);
+            }
+            render(){
+                return <li>{this.props.value}</li>
+
+            }
+        }
+        class List extends React.Component{
+            constructor(...args){
+                super(...args);
+                this.state = {
+                    arr:[12,8,5,9]
+                };
+            }
+            fn(){
+                this.setState({
+                    arr:this.state.arr.concat([Math.random()])
+                })                
+            }
+            render(){
+                var result = [];
+                var arr = this.state.arr;
+
+                for(var i=0;i<arr.length;i++){
+                    result.push(<Item key={i} value={arr[i]} />)
+                }
+                return <ul>
+                        <input type="button" value="按钮" onClick={this.fn.bind(this)} />
+                        {result}
+                    </ul>
+            }
+        }
+        ReactDOM.render(
+            <List />,
+            document.getElementById('div1')
+        )
+    </script>
+</body>
+
+</html>
