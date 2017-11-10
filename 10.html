@@ -22,16 +22,30 @@
             componentDidMount(){
                 console.log('创建完成')
             }
+            componentWillUnmount(){
+                console.log('即将销毁')
+            }
             render(){
                 return <div>
                         <span>1111</span>
                     </div>
             }
         }
-        ReactDOM.render(
-            <Comp />,
-            document.getElementById('div1')
-        )
+        var i = 0;
+        document.onclick=()=>{
+            i++;
+            if(i%2){
+                ReactDOM.render(
+                    <Comp />,
+                    document.getElementById('div1')
+                )
+            }else{
+                ReactDOM.render(
+                    <div>qqqq</div>,
+                    document.getElementById('div1')
+                )
+            }
+        }
     </script>
 </body>
 
