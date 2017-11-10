@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件节点获取；react中的表单；react的数据交互等</title>
+</head>
+
+<body>
+    <div id="div1"></div>
+
+    <script src="bower_components/babel/browser.js"></script>
+    <script src="bower_components/react/react.development.js"></script>
+    <script src="bower_components/react/react-dom.development.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/babel">
+       class Title extends React.Component{
+           constructor(...args){
+               super(...args);
+               this.state={
+                   color:'black'
+               }
+           }
+           fn(){
+                // alert(this.refs['s1'])
+                // var oS = this.refs['s1'];
+                // oS.style.color = 'red';
+
+                $(this.refs['s1']).css('color','red');
+           }
+           render(){
+               return <div>
+                    <input type="button" value="按钮" onClick={this.fn.bind(this)} />
+                    <span ref="s1">aaaa</span>
+                </div>
+           }
+       }
+
+       $(()=>{
+        ReactDOM.render(
+            <Title />,
+            $('#div1')[0]
+        )
+       })
+    </script>
+</body>
+
+</html>
